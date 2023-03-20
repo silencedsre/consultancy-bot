@@ -47,9 +47,9 @@ VALID_COUNTRY = [
 ]
 
 
-class ValidateIELTS_Score(FormValidationAction):
+class Validate_Country_Academics_Form(FormValidationAction):
     def name(self) -> Text:
-        return "validate_ielts_score_form"
+        return "validate_country_academics_form"
 
     def validate_academics(
         self,
@@ -81,24 +81,9 @@ class ValidateIELTS_Score(FormValidationAction):
         # dispatcher.utter_message(text=f"OK! You want to join in {slot_value}")
         return {"country": slot_value}
 
-class ValidateWorkingHours(FormValidationAction):
+class Validate_Country_Form(FormValidationAction):
     def name(self) -> Text:
-        return "validate_working_hours_form"
-
-    def validate_academics(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `pizza_size` value."""
-
-        if slot_value.lower() not in VALID_ACADEMICS:
-            dispatcher.utter_message(text=f"You can choose from: Bachelors and Masters.")
-            return {"academics": None}
-        # dispatcher.utter_message(text=f"OK! You want to join for {slot_value}.")
-        return {"academics": slot_value}
+        return "validate_country_form"
 
     def validate_country(
         self,
@@ -114,79 +99,6 @@ class ValidateWorkingHours(FormValidationAction):
             return {"country": None}
         # dispatcher.utter_message(text=f"OK! You want to join in {slot_value}")
         return {"country": slot_value}
-
-class ValidateScholorships(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_scholarship_form"
-
-    def validate_country(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `pizza_type` value."""
-
-        if slot_value not in VALID_COUNTRY:
-            dispatcher.utter_message(text=f"We only work with {'/'.join(VALID_COUNTRY)}.")
-            return {"country": None}
-        # dispatcher.utter_message(text=f"OK! You want to join in {slot_value}")
-        return {"country": slot_value}
-
-class Validate_Cost_to_Apply_Form(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_cost_to_apply_form"
-
-    def validate_academics(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `pizza_size` value."""
-
-        if slot_value.lower() not in VALID_ACADEMICS:
-            dispatcher.utter_message(text=f"You can choose from: Bachelors and Masters.")
-            return {"academics": None}
-        # dispatcher.utter_message(text=f"OK! You want to join for {slot_value}.")
-        return {"academics": slot_value}
-
-    def validate_country(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `pizza_type` value."""
-
-        if slot_value not in VALID_COUNTRY:
-            dispatcher.utter_message(text=f"We only work with {'/'.join(VALID_COUNTRY)}.")
-            return {"country": None}
-        # dispatcher.utter_message(text=f"OK! You want to join in {slot_value}")
-        return {"country": slot_value}
-
-class Validate_Visa_Processing_Time_Form(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_visa_processing_time_form"
-
-    def validate_country(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `pizza_type` value."""
-
-        if slot_value not in VALID_COUNTRY:
-            dispatcher.utter_message(text=f"We only work with {'/'.join(VALID_COUNTRY)}.")
-            return {"country": None}
-        # dispatcher.utter_message(text=f"OK! You want to join in {slot_value}")
-        return {"country": slot_value}
-
 
 
 class Validate_Lead_gen_Form(FormValidationAction):
@@ -319,16 +231,6 @@ class Action_Scholorships(Action):
             SlotSet("country", None),
         ]
 
-        # data = {
-        #     "intent": {
-        #         "name": "ask_for_name",
-        #         "confidence": 1.0,
-        #     }
-        # }
-        #
-        # ActionExecuted("action_listen"),
-        # UserUttered(text="/ask_for_name", parse_data=data),
-
         return slots
 
 
@@ -360,7 +262,6 @@ class Action_Cost_to_Apply(Action):
         ]
 
         return slots
-
 
 class Action_Visa_Processing_Time(Action):
 

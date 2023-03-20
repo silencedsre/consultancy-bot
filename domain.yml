@@ -50,22 +50,11 @@ slots:
       entity: number
 
 forms:
-  ielts_score_form:
+  country_academics_form:
     required_slots:
       - country
       - academics
-  working_hours_form:
-    required_slots:
-      - country
-      - academics
-  scholarship_form:
-    required_slots:
-      - country
-  cost_to_apply_form:
-    required_slots:
-      - country
-      - academics
-  visa_processing_time_form:
+  country_form:
     required_slots:
       - country
   lead_generation_form:
@@ -134,11 +123,8 @@ actions:
   - action_scholorships
   - action_cost_to_apply
   - action_visa_processing_time
-  - validate_ielts_score_form
-  - validate_working_hours_form
-  - validate_scholarship_form
-  - validate_cost_to_apply_form
-  - validate_visa_processing_time_form
+  - validate_country_academics_form
+  - validate_country_form
   - validate_lead_generation_form
 
 session_config:

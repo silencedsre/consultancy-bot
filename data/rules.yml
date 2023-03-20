@@ -41,59 +41,37 @@ rules:
 - rule: Activate IELTS Score form (country and academics)
   steps:
   - intent: ielts_score
-  - action: ielts_score_form
-  - active_loop: ielts_score_form
-
-- rule: Submit IELTS Score form (country and academics)
-  condition:
-  - active_loop: ielts_score_form
-  steps:
-  - action: ielts_score_form
+  - action: country_academics_form
+  - active_loop: country_academics_form
+  - action: country_academics_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
   - action: action_ielts_score
 
-- rule: Activate working_hours form (country and academics)
+- rule: Activate working permit form (country and academics)
   steps:
   - intent: working_hours
-  - action: working_hours_form
-  - active_loop: working_hours_form
-
-- rule: Submit working hours form (country and academics)
-  condition:
-  - active_loop: working_hours_form
-  steps:
-  - action: working_hours_form
+  - action: country_academics_form
+  - active_loop: country_academics_form
+  - action: country_academics_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
   - action: action_working_hours
 
-- rule: Activate scholarship form (country only)
+- rule: Activate scholorship form (country and academics)
   steps:
   - intent: scholorships
-  - action: scholarship_form
-  - active_loop: scholarship_form
-
-- rule: Submit scholarship form (country only)
-  condition:
-  - active_loop: scholarship_form
-  steps:
-  - action: scholarship_form
+  - action: country_form
+  - active_loop: country_form
+  - action: country_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
   - action: action_scholorships
-#  - action: utter_query_lead_generation
   - action: lead_generation_form
   - active_loop: lead_generation_form
-
-#- rule: Activate lead generation form (name and address)
-#  steps:
-#  - intent: ask_for_name
-#  - action: lead_generation_form
-#  - active_loop: lead_generation_form
 
 - rule: Submit lead generation form (name and address)
   condition:
@@ -104,35 +82,25 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_lead_generation
-#  - wait_for_user_input: false
 
-- rule: Activate scholarship form (country and academics)
+
+- rule: Activate cost to apply form (country and academics)
   steps:
   - intent: cost_to_apply
-  - action: cost_to_apply_form
-  - active_loop: cost_to_apply_form
-
-- rule: Submit cost to apply form (country and academics)
-  condition:
-  - active_loop: cost_to_apply_form
-  steps:
-  - action: cost_to_apply_form
+  - action: country_academics_form
+  - active_loop: country_academics_form
+  - action: country_academics_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
   - action: action_cost_to_apply
 
-- rule: Activate visa processing time form (country only)
+- rule: Activate visa processing form (country only)
   steps:
   - intent: visa_processing_time
-  - action: visa_processing_time_form
-  - active_loop: visa_processing_time_form
-
-- rule: Submit visa processing time form (country only)
-  condition:
-  - active_loop: visa_processing_time_form
-  steps:
-  - action: visa_processing_time_form
+  - action: country_form
+  - active_loop: country_form
+  - action: country_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
