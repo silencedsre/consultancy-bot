@@ -1,0 +1,132 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: country
+  examples: |
+    - [USA](country)
+    - [US](country)
+    - [Canada](country)
+    - [Australia](country)
+
+- intent: academics
+  examples: |
+    - [Bachelors](academics)
+    - [Masters](academics)
+
+- intent: offer_letter
+  examples: |
+    - What are the document required for offer letter?
+    - Offer Letter Documents?
+    - Offer Letter?
+    - list the document required for offer letter
+    - please tell me about the offer letter document
+    - what is the process of applying for offer letter?
+    - offer letter process?
+    - what are the steps required to get offer letter?
+
+- intent: ielts_score
+  examples: |
+    - How much IELTS score is required to apply for [Bachelor](academics) for [USA](country) ?
+    - What is the IELTS score required to apply for [Masters](academics) for [Australia](country)?
+    - IELTS score to apply for [Australia](country)?
+    - how much ielts is required to study at [USA](country)?
+    - how much ielts is required to study at [australia](country)?
+    - how much score do you need to study for [Masters](academics) in [USA](country)?
+    - what is the minimum score required to study for [Masters](academics) in [Canada](country)?
+    - IELTS score needed to apply for [Canada](country)?
+
+- intent: ielts_without
+  examples: |
+    - Can I apply [Canada](country) without IELTS?
+    - Can I apply [US](country) without IELTS?
+    - Is IELTS required to study in [Canada](country)?
+    - Can I study in [Austrilia](country) without IELTS?
+    - Do [US](country) require IELTS to study?
+    - It is necessary to do IELTS to study in [Austrilia](country)?
+
+- intent: working_hours
+  examples: |
+    - How much time can I work as a student?
+    - How much hours can I work?
+    - How much time can I work as a [Bachelor](academics) in [US](country)?
+    - working time in [USA](country) as a student
+    - what are the work permit in [Austrilia](country)?
+    - work permit rules for [Bachelors](academics) in [Canada](country)?
+    - How many hours can I work in [Canada](country)?
+    - How much hours am I eligible to work as a [Bachelors](academics) student?
+
+- intent: scholorships
+  examples: |
+    - Can I get scholarship and how much?
+    - Can I get scholorship for [US](country)?
+    - Can you help me finding scholarship in [USA](country) university?
+    - How can I get a scholorship in [Canada](country)?
+    - Do [Australia](country) provide scholorship?
+    - How much scholorship can I get for [Bachelors](academics)?
+    - What are the processes to get a scholorship in [US](country)?
+
+- intent: cost_to_apply
+  examples: |
+    - What is the total cost needed to apply visa?
+    - how much does the cost involved to apply [Masters](academics) in [USA](country)?
+    - what is the cost involved to apply [Masters] in IT in [Australia](country)?
+    - How much do I need to have to study [MBA](academics) in [Australia](country)?
+    - cost needed to study in [Masters](academics)?
+    - how much do i need to study in [Canand](country)?
+    - how much is required to apply the visa in [Australia](country)?
+    - cost required to study in [US](country)
+    - what is the total cost involved to study [Bachelors](academics)?
+
+- intent: visa_processing_time
+  examples: |
+    - how long does it take to get the visa for [Australia](country)?
+    - how long does it take to get the visa for [USA](country)?
+    - what is the visa processing time for [Canada](country)?
+    - what is the time to get the visa to study in [US](country)?
+    - how much time it takes to get the visa approval?
+    - how much time is required to get the visa for [USA](country)
+    - What is the turnaround time for an [Australian](country) visa?
+    - How long does it take to get a visa to [Canada](country)?
+
+- intent: lead_generation
+  examples: |
+    - [Shree Krishna Jamakatel](name)
+    - [Shree Krishna](name)
+    - [James](name)
+    - [9847809876](number)
+    - [+977 8976542](number)
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?

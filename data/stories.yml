@@ -1,0 +1,44 @@
+version: "3.1"
+
+stories:
+
+#- story: Give the correct IELTS score required to study Bachelors at USA
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: ielts_score
+#    entities:
+#      - country: "USA"
+#      - academics: "Bachelors"
+#  - action: action_ielts_score
+
+
+#- story: Give the correct IELTS score required to study Bachelors at Canada
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: ielts_score
+#    entities:
+#      - country: "Canada"
+#      - academics: "Bachelors"
+#  - action: utter_ielts_bachelor_score
+#
+#- story: Give the correct IELTS score required to study Masters at USA
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: ielts_score
+#    entities:
+#      - country: "USA"
+#      - academics: "Masters"
+#  - action: utter_ielts_masters_score
+#
+#- story: Give the correct IELTS score required to study Masters at Australia
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: ielts_score
+#    entities:
+#      - country: "Australia"
+#      - academics: "Masters"
+#  - action: utter_ielts_masters_score

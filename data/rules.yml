@@ -1,0 +1,139 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+#- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+#  steps:
+#  - intent: nlu_fallback
+#  - action: utter_please_rephrase
+
+- rule: Implementation of the Two-Stage-Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: action_two_stage_fallback
+  - active_loop: action_two_stage_fallback
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: offer letter
+  steps:
+  - intent: offer_letter
+  - action: utter_offer_letter
+
+- rule: ielts_without
+  steps:
+  - intent: ielts_without
+  - action: utter_ielts_without
+
+- rule: Activate IELTS Score form (country and academics)
+  steps:
+  - intent: ielts_score
+  - action: ielts_score_form
+  - active_loop: ielts_score_form
+
+- rule: Submit IELTS Score form (country and academics)
+  condition:
+  - active_loop: ielts_score_form
+  steps:
+  - action: ielts_score_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_ielts_score
+
+- rule: Activate working_hours form (country and academics)
+  steps:
+  - intent: working_hours
+  - action: working_hours_form
+  - active_loop: working_hours_form
+
+- rule: Submit working hours form (country and academics)
+  condition:
+  - active_loop: working_hours_form
+  steps:
+  - action: working_hours_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_working_hours
+
+- rule: Activate scholarship form (country only)
+  steps:
+  - intent: scholorships
+  - action: scholarship_form
+  - active_loop: scholarship_form
+
+- rule: Submit scholarship form (country only)
+  condition:
+  - active_loop: scholarship_form
+  steps:
+  - action: scholarship_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_scholorships
+#  - action: utter_query_lead_generation
+  - action: lead_generation_form
+  - active_loop: lead_generation_form
+
+#- rule: Activate lead generation form (name and address)
+#  steps:
+#  - intent: ask_for_name
+#  - action: lead_generation_form
+#  - active_loop: lead_generation_form
+
+- rule: Submit lead generation form (name and address)
+  condition:
+  - active_loop: lead_generation_form
+  steps:
+  - action: lead_generation_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_lead_generation
+#  - wait_for_user_input: false
+
+- rule: Activate scholarship form (country and academics)
+  steps:
+  - intent: cost_to_apply
+  - action: cost_to_apply_form
+  - active_loop: cost_to_apply_form
+
+- rule: Submit cost to apply form (country and academics)
+  condition:
+  - active_loop: cost_to_apply_form
+  steps:
+  - action: cost_to_apply_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_cost_to_apply
+
+- rule: Activate visa processing time form (country only)
+  steps:
+  - intent: visa_processing_time
+  - action: visa_processing_time_form
+  - active_loop: visa_processing_time_form
+
+- rule: Submit visa processing time form (country only)
+  condition:
+  - active_loop: visa_processing_time_form
+  steps:
+  - action: visa_processing_time_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_visa_processing_time
