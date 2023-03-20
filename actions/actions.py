@@ -62,7 +62,13 @@ class Validate_Country_Academics_Form(FormValidationAction):
         """Validate `academics` value."""
 
         if slot_value.lower() not in VALID_ACADEMICS:
-            dispatcher.utter_message(text=f"We only accept: Bachelors and Masters.")
+            dispatcher.utter_message(
+                text=f"We only accept: Bachelors and Masters.",
+                buttons=[
+                    {"title":"Bachelors", "payload":"/academics"},
+                    {"title": "Masters", "payload": "/academics"},
+                ]
+            )
             return {"academics": None}
         return {"academics": slot_value}
 
@@ -76,7 +82,15 @@ class Validate_Country_Academics_Form(FormValidationAction):
         """Validate `country` value."""
 
         if slot_value.lower() not in VALID_COUNTRY:
-            dispatcher.utter_message(text=f"We only work with {'/'.join(VALID_COUNTRY)}.")
+            dispatcher.utter_message(
+                text=f"We only work with {'/'.join(VALID_COUNTRY)}.",
+            buttons = [
+                {"title": "USA", "payload": "/country"},
+                {"title": "Australia", "payload": "/country"},
+                {"title": "Canada", "payload": "/country"},
+            ]
+
+            )
             return {"country": None}
         # dispatcher.utter_message(text=f"OK! You want to join in {slot_value}")
         return {"country": slot_value}
@@ -146,10 +160,10 @@ class ActionIELTS_Score(Action):
         logger.info(f"Academics: {academics}")
         logger.info(f"Country: {country}")
 
-        if academics in VALID_BACHELORS:
+        if academics.lower() in VALID_BACHELORS:
             dispatcher.utter_message(text="GPA 2.60 and above and IELTS 6.0 not less 5.5")
 
-        elif  academics in VALID_MASTERS:
+        elif  academics.lower() in VALID_MASTERS:
             dispatcher.utter_message(text="GPA 2.65 and above and IELTS 6.5 not less than 6")
 
         else:
@@ -174,8 +188,6 @@ class Action_Working_Hour(Action):
         academics = tracker.get_slot("academics")
         country = tracker.get_slot("country")
         intent = tracker.get_intent_of_latest_message()
-        # academics = tracker.get_latest_entity_values(entity_type="academics")
-        # country = tracker.get_latest_entity_values(entity_type="country")
 
         logger.info(f"The current intent:{intent}")
         logger.info(f"Academics: {academics}")
@@ -202,8 +214,6 @@ class Action_Scholorships(Action):
         academics = tracker.get_slot("academics")
         country = tracker.get_slot("country")
         intent = tracker.get_intent_of_latest_message()
-        # academics = tracker.get_latest_entity_values(entity_type="academics")
-        # country = tracker.get_latest_entity_values(entity_type="country")
 
         logger.info(f"The current intent:{intent}")
         logger.info(f"Academics: {academics}")
