@@ -24,14 +24,13 @@ logger.error("Started")
 VALID_BACHELORS = [
     "bachelors",
     "bachelor",
-    "Bachelor",
     "undergraduate",
     "undergrad"
 ]
 
 VALID_MASTERS = [
-    "Masters",
     "masters",
+    "master"
     "graduate",
     "grad"
 ]
@@ -40,11 +39,10 @@ VALID_ACADEMICS = VALID_MASTERS + VALID_BACHELORS
 
 VALID_COUNTRY = [
     "usa",
-    "USA",
-    "US",
-    "United States",
-    "Canada",
-    "Australia"
+    "us",
+    "united states",
+    "canada",
+    "australia",
 ]
 
 
@@ -61,13 +59,14 @@ class Validate_Country_Academics_Form(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `academics` value."""
 
+        # buttons = [
+        #     {"title": "Bachelors", "payload": "/academics"},
+        #     {"title": "Masters", "payload": "/academics"},
+        # ]
+
         if slot_value.lower() not in VALID_ACADEMICS:
             dispatcher.utter_message(
                 text=f"We only accept: Bachelors and Masters.",
-                buttons=[
-                    {"title":"Bachelors", "payload":"/academics"},
-                    {"title": "Masters", "payload": "/academics"},
-                ]
             )
             return {"academics": None}
         return {"academics": slot_value}
@@ -81,15 +80,15 @@ class Validate_Country_Academics_Form(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `country` value."""
 
+        # buttons = [
+        #     {"title": "USA", "payload": "/country"},
+        #     {"title": "Australia", "payload": "/country"},
+        #     {"title": "Canada", "payload": "/country"},
+        # ]
+
         if slot_value.lower() not in VALID_COUNTRY:
             dispatcher.utter_message(
-                text=f"We only work with {'/'.join(VALID_COUNTRY)}.",
-            buttons = [
-                {"title": "USA", "payload": "/country"},
-                {"title": "Australia", "payload": "/country"},
-                {"title": "Canada", "payload": "/country"},
-            ]
-
+                text=f"We only work with {'/'.join(VALID_COUNTRY)}."
             )
             return {"country": None}
         # dispatcher.utter_message(text=f"OK! You want to join in {slot_value}")
