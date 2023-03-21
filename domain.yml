@@ -96,11 +96,29 @@ responses:
   utter_cost_to_apply:
   - text: "It depends on the state and universities you chose."
 
+#  utter_ask_academics:
+#  - text: "In which level you want to pursue your study?"
+
   utter_ask_academics:
-  - text: "In which level you want to study?"
+    - buttons:
+        - payload: '/academics{{"academics":"Bachelor"}}'
+          title: Bachelors
+        - payload: '/academics{{"academics":"Master"}}'
+          title: Masters
+      text: In which level you want to pursue your study?
+
+  #  utter_ask_country:
+#  - text: "Which country?"
 
   utter_ask_country:
-  - text: "Which country?"
+  - buttons:
+    - payload: '/country{{"country":"USA"}}'
+      title: USA
+    - payload: '/country{{"country":"Australia"}}'
+      title: Australia
+    - payload: '/country{{"country":"Canada"}}'
+      title: Canada
+    text: Which country do you want to join?
 
   utter_ask_name:
   - text: "Your name?"
