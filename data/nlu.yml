@@ -30,6 +30,14 @@ nlu:
     - bye bye
     - see you later
 
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - by the way, are you a human?
+
 - intent: country
   examples: |
     - [USA](country)
@@ -59,6 +67,7 @@ nlu:
     - What is the IELTS score required to apply for [Masters](academics) for [Australia](country)?
     - IELTS score to apply for [Australia](country)?
     - how much ielts is required to study at [USA](country)?
+    - how much is the IELTS score required for Australia ?
     - how much ielts is required to study at [australia](country)?
     - how much score do you need to study for [Masters](academics) in [USA](country)?
     - what is the minimum score required to study for [Masters](academics) in [Canada](country)?
