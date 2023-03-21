@@ -3,6 +3,7 @@ version: "3.1"
 intents:
   - greet
   - goodbye
+  - bot_challenge
   - offer_letter
   - ielts_score
   - ielts_without
@@ -101,9 +102,9 @@ responses:
 
   utter_ask_academics:
     - buttons:
-        - payload: '/academics{{"academics":"Bachelor"}}'
+        - payload: '/academics{{"academics":"Bachelors"}}'
           title: Bachelors
-        - payload: '/academics{{"academics":"Master"}}'
+        - payload: '/academics{{"academics":"Masters"}}'
           title: Masters
       text: In which level you want to pursue your study?
 
