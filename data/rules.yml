@@ -105,3 +105,15 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_visa_processing_time
+
+- rule: Interruption in country/academics form
+  condition:
+  # Condition that form is active.
+  - active_loop: country_academics_form
+  steps:
+  # This unhappy path handles the case of an intent `bot_challenge`.
+  - intent: bot_challenge
+  - action: utter_iamabot
+  # Return to form after handling the `bot_challenge` intent
+  - action: country_academics_form
+  - active_loop: country_academics_form
