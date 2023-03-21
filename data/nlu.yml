@@ -44,9 +44,17 @@ nlu:
     - [US](country)
     - [Canada](country)
     - [Australia](country)
+    - [United States](country)
+    - [australia](country)
 
 - intent: academics
   examples: |
+    - [bachelor](academics)
+    - [master](academics)
+    - [grad](academics)
+    - [graduate](academics)
+    - [undergrad](academics)
+    - [undergraduate](academics)
     - [Bachelors](academics)
     - [Masters](academics)
 
