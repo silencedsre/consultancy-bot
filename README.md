@@ -1,3 +1,5 @@
+The bot should be able to answer the following queries.
+
 ### Offer Letter:
 
 #### Q)What are the document required for offer letter ?
@@ -64,3 +66,15 @@ Here, student may ask for bachelor or master’s program and any country. Chatbo
 
 #### Q) how long does it take to get the visa for Australia or USA or Canada (country variable)
 A) It depends on university and documents you have provided but in general we are getting visa in 35 days.
+
+### Additional Features:
+- Form Validations
+- Add buttons in forms to guide the users
+- Handling of interruption `bot_challenge` in country/academics form 
+
+### Future Enhancements
+- Name and number is handled only with few examples (need to add more examples)
+- Save lead name and number in database
+
+### Run
+- `rasa shell & rasa run actions`
